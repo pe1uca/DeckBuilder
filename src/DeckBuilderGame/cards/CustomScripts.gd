@@ -73,3 +73,12 @@ func sacrifice_fire_gem(script: ScriptObject) -> void:
 			script.owner,
 			tags)
 	pass
+
+func buy_card_from_market(script: ScriptObject) -> void:
+	var card: Card = script.owner
+	var cost = card.get_property("Cost")
+	if (DBGUtils.buy_card(card)):
+		card.scripts = {}
+		card.move_to(cfc.NMAP["discard"])
+		cfc.NMAP.market.draw_card(cfc.NMAP.maindeck)
+	pass

@@ -2,7 +2,7 @@
 
 extends Reference
 
-const SET = "Core Set"
+const SET = "Core Set (base)"
 const CARDS := {
 	"Oro": {
 		"_scene": "Base",

@@ -23,7 +23,10 @@ func _ready() -> void:
 		$SeedLabel.text = "Game Seed is: " + cfc.game_rng_seed
 	if not get_tree().get_root().has_node('Gut'):
 		# load_test_cards($Deck)
-		load_test_cards($MainDeck)
+		load_test_cards($MainDeck, 20)
+	
+	for x in range(5):
+		cfc.NMAP.market.draw_card(cfc.NMAP.maindeck)
 	# warning-ignore:return_value_discarded
 	load_base_deck($Deck)
 	load_fire_gems($GemPile)
@@ -83,7 +86,7 @@ func _on_Debug_toggled(button_pressed: bool) -> void:
 func load_test_cards(pile := $Deck, extras := 11) -> void:
 	var test_cards := []
 	for ckey in cfc.card_definitions.keys():
-		if ckey != "Spawn Card":
+		if not ckey in ["Oro", "Rubí", "Espada corta", "Daga", "Gema de Fuego"]:
 			test_cards.append(ckey)
 	var test_card_array := []
 	for _i in range(extras):
@@ -100,6 +103,7 @@ func load_test_cards(pile := $Deck, extras := 11) -> void:
 		pile.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
+	pile.shuffle_cards(false)
 		
 func load_base_deck(pile := $Deck):
 	var card
