@@ -54,6 +54,8 @@ func spend_resource(script: ScriptObject) -> void:
 	pass
 
 func sacrifice_fire_gem(script: ScriptObject) -> void:
+	if not script.is_accepted:
+		return
 	var card: Card = script.owner
 	var dest_container: CardContainer = script.get_property(SP.KEY_DEST_CONTAINER)
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)

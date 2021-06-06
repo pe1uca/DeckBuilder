@@ -11,7 +11,7 @@ func _ready() -> void:
 	_card_text = $Margin/CardText
 	# Map your card text label layout here. We use this when scaling
 	# The card or filling up its text
-	card_labels["Name"] = $Margin/CardText/Name
+	card_labels["Name"] = $Margin/CardText/HBoxContainer/Name
 	card_labels["Type"] = $Margin/CardText/Type
 	card_labels["Tags"] = $Margin/CardText/Tags
 	# card_labels["Requirements"] = $Margin/CardText/Requirements

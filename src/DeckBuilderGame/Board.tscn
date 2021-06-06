@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/DeckBuilderGame/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -9,8 +9,6 @@
 [ext_resource path="res://src/custom/CGFPlacementGridDemo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/custom/CGFModifiedLabelGrid.tscn" type="PackedScene" id=8]
 [ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://src/core/DeckBuilder/DeckBuilder.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/custom/CGFInfoPanel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/DeckBuilderGame/Hand.gd" type="Script" id=12]
 [ext_resource path="res://src/DeckBuilderGame/MainDeck.gd" type="Script" id=13]
 [ext_resource path="res://src/DeckBuilderGame/Market.tscn" type="PackedScene" id=14]
@@ -122,21 +120,21 @@ __meta__ = {
 }
 
 [node name="ReshuffleAllDeck" type="Button" parent="."]
-margin_left = 9.89948
-margin_top = 116.762
-margin_right = 200.899
-margin_bottom = 136.762
-text = "Reshuffle all cards into deck"
+margin_left = 10.0
+margin_top = 117.0
+margin_right = 200.0
+margin_bottom = 137.0
+text = "Reshuffle discard into deck"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ReshuffleAllDiscard" type="Button" parent="."]
-margin_left = 9.89948
-margin_top = 140.334
-margin_right = 200.899
-margin_bottom = 160.334
-text = "Reshuffle all cards into discard"
+margin_left = 10.0
+margin_top = 140.0
+margin_right = 200.0
+margin_bottom = 160.0
+text = "Reshuffle deck into discard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -152,22 +150,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeckBuilder" type="Button" parent="."]
+[node name="ShowMarket" type="Button" parent="."]
 margin_left = 205.0
-margin_top = 45.0
+margin_top = 44.0975
 margin_right = 345.0
-margin_bottom = 85.0
-text = "DeckBuilder"
+margin_bottom = 82.8377
+text = "Focus Market"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShowMarket" type="Button" parent="."]
-margin_left = 366.885
-margin_top = 45.0
-margin_right = 506.885
-margin_bottom = 83.7402
-text = "Focus Market"
+[node name="EndTurn" type="Button" parent="."]
+margin_left = 205.0
+margin_top = 117.0
+margin_right = 345.0
+margin_bottom = 156.0
+text = "End turn"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -206,26 +204,14 @@ text = "Game Seed is: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="DeckBuilderPopup" type="PopupPanel" parent="."]
-margin_right = 1000.0
-margin_bottom = 600.0
-rect_min_size = Vector2( 800, 0 )
-
-[node name="DeckBuilder" parent="DeckBuilderPopup" instance=ExtResource( 10 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-info_panel_scene = ExtResource( 11 )
 [connection signal="toggled" from="FancyMovementToggle" to="." method="_on_FancyMovementToggle_toggled"]
 [connection signal="toggled" from="EnableAttach" to="." method="_on_EnableAttach_toggled"]
 [connection signal="item_selected" from="ScalingFocusOptions" to="." method="_on_ScalingFocusOptions_item_selected"]
 [connection signal="pressed" from="ReshuffleAllDeck" to="." method="_on_ReshuffleAllDeck_pressed"]
 [connection signal="pressed" from="ReshuffleAllDiscard" to="." method="_on_ReshuffleAllDiscard_pressed"]
 [connection signal="toggled" from="OvalHandToggle" to="." method="_on_OvalHandToggle_toggled"]
-[connection signal="pressed" from="DeckBuilder" to="." method="_on_DeckBuilder_pressed"]
 [connection signal="pressed" from="ShowMarket" to="." method="_on_ShowMarket_pressed"]
+[connection signal="pressed" from="EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="toggled" from="Debug" to="." method="_on_Debug_toggled"]
 
 [editable path="Discard"]

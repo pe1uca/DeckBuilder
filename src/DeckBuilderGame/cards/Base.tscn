@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/DeckBuilderGame/CardTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/DeckBuilderGame/cards/BaseFront.tscn" type="PackedScene" id=2]
 
 [node name="Base" instance=ExtResource( 1 )]
+card_front_design = ExtResource( 2 )

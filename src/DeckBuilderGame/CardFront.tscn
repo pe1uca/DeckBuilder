@@ -36,7 +36,7 @@ outline_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 12
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -74,7 +74,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Name" type="Label" parent="Margin/CardText"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/CardText"]
+margin_right = 146.0
+margin_bottom = 19.0
+
+[node name="Name" type="Label" parent="Margin/CardText/HBoxContainer"]
 margin_right = 146.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 146, 19 )
@@ -119,7 +123,7 @@ margin_right = 146.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 146, 144 )
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "This is the card ability text.
 
 There should be space for a bit of text here."
